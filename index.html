@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tomato Disease Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body 
+    {
+      background: linear-gradient(135deg, #fff0e0, #ffe5d0);
+      font-family: 'Nunito', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      margin: 0;
+      color: #4b3621;
+    }
+
+    h1 
+    {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #e94e1b;
+      text-shadow: 1px 1px 3px #c74913;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    form 
+    {
+      background: #ffffff;
+      padding: 35px 45px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(233, 78, 27, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 420px;
+      width: 100%;
+      gap: 30px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    input[type="file"] 
+    {
+      border: 2px dashed #ff784e;
+      border-radius: 12px;
+      padding: 18px;
+      width: 100%;
+      cursor: pointer;
+      background-color: #fff6f1;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    input[type="file"]:hover 
+    {
+      border-color: #e94e1b;
+      background-color: #fff1e8;
+    }
+
+    button 
+    {
+      background-color: #e94e1b;
+      color: white;
+      font-size: 1.2rem;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+      box-shadow: 0 6px 20px rgba(233, 78, 27, 0.4);
+    }
+
+    button:hover 
+    {
+      background-color: #ff6d36;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 109, 54, 0.6);
+    }
+
+    @keyframes fadeIn 
+    {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp 
+    {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) 
+    {
+      h1 {
+        font-size: 2rem;
+      }
+
+      form {
+        padding: 25px;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload a Tomato Leaf Image</h1>
+  <form action="/predict" method="post" enctype="multipart/form-data" novalidate>
+    <input type="file" name="tomato_image" accept="image/*" required />
+    <button type="submit">Detect Disease</button>
+  </form>
+</body>
+</html>
